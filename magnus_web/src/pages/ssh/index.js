@@ -43,7 +43,7 @@ function WebSSH(props) {
   const [sshMode] = useState(hasPermission('host.console.view'))
 
   useEffect(() => {
-    window.document.title = 'MAGNUS web terminal'
+    window.document.title = 'MAGNUS | Web Terminal'
     window.addEventListener('beforeunload', leaveTips)
     fetchNodes()
     gStore.fetchUserSettings()

@@ -10,7 +10,8 @@ import {
   DeploymentUnitOutlined,
   MonitorOutlined,
   AlertOutlined,
-  SettingOutlined
+  SettingOutlined,
+  DatabaseOutlined
 } from '@ant-design/icons';
 
 import HomeIndex from './pages/home';
@@ -37,6 +38,7 @@ import SystemSetting from './pages/system/setting';
 import SystemLogin from './pages/system/login';
 import WelcomeIndex from './pages/welcome/index';
 import WelcomeInfo from './pages/welcome/info';
+import DataAssets from "./pages/data-assets";
 
 export default [
   // {icon: <DesktopOutlined/>, title: '工作台', path: '/home', component: HomeIndex},
@@ -91,6 +93,11 @@ export default [
       {title: '账户管理', auth: 'system.account.view', path: '/system/account', component: SystemAccount},
       {title: '角色管理', auth: 'system.role.view', path: '/system/role', component: SystemRole},
       {title: '系统设置', auth: 'system.setting.view', path: '/system/setting', component: SystemSetting},
+    ]
+  },
+    {
+    icon: <DatabaseOutlined/>, title: '数据资产', auth: "data.assets.view", child: [
+      {title: '资产列表', auth: 'data.assets.view', path: '/data/assets', component: DataAssets},
     ]
   },
   {path: '/welcome/index', component: WelcomeIndex},
