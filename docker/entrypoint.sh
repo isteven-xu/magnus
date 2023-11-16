@@ -1,5 +1,4 @@
 #!/bin/bash
-#
 set -e
 
 if [ -e /root/.bashrc ]; then

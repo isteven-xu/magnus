@@ -1,7 +1,7 @@
 version: "3.3"
 services:
   db:
-    image: mariadb:10.8
+    image: mariadb:10.8.2
     container_name: magnus-db
     restart: always
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
@@ -21,7 +21,6 @@ services:
       - /data/magnus/service:/data/magnus
       - /data/magnus/repos:/data/repos
     ports:
-      # 如果80端口被占用可替换为其他端口，例如: - "8000:80"
       - "80:80"
     environment:
       - SPUG_DOCKER_VERSION=v3.2.4
