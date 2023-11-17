@@ -112,7 +112,7 @@ class Notification:
             'msgtype': 'markdown',
             'markdown': {
                 'title': '监控告警通知',
-                'text': '\n\n'.join(texts) + '\n\n> ###### 来自 Spug运维平台'
+                'text': '\n\n'.join(texts) + '\n\n> ###### 来自 浙里信大数据运维平台'
             },
             'at': {
                 'isAtAll': True
@@ -135,7 +135,7 @@ class Notification:
         data = {
             'msgtype': 'markdown',
             'markdown': {
-                'content': '\n'.join(texts) + '\n> 来自 Spug运维平台'
+                'content': '\n'.join(texts) + '\n> 来自 浙里信大数据运维平台'
             }
         }
         for url in users:
