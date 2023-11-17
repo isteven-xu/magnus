@@ -13,7 +13,7 @@ services:
       - MYSQL_PASSWORD=magnus.cc
       - MYSQL_ROOT_PASSWORD=magnus.cc
   magnus:
-    image: istevenxu/magnus:1.1.0
+    image: magnus:1.0.0
     container_name: magnus
     privileged: true
     restart: always
