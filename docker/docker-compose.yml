@@ -4,26 +4,24 @@ services:
     image: mariadb:10.8.2
     container_name: magnus-db
     restart: always
-    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    command: --port 3306 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
-      - /data/magnus/mysql:/var/lib/mysql
+      - ~/data/magnus/mysql:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=magnus
       - MYSQL_USER=magnus
       - MYSQL_PASSWORD=magnus.cc
       - MYSQL_ROOT_PASSWORD=magnus.cc
   magnus:
-    image: magnus:1.0.0
+    image: magnus
     container_name: magnus
     privileged: true
     restart: always
-    volumes:
-      - /data/magnus/service:/data/magnus
-      - /data/magnus/repos:/data/repos
     ports:
-      - "80:80"
+      - "4000:80"
+    volumes:
+      - ~/data/magnus/repos:/data/repos
     environment:
-      - SPUG_DOCKER_VERSION=v3.2.4
       - MYSQL_DATABASE=magnus
       - MYSQL_USER=magnus
       - MYSQL_PASSWORD=magnus.cc
