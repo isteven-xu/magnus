@@ -20,6 +20,7 @@ services:
     ports:
       - "4000:80"
     volumes:
+      - ~/data/magnus/service:/data/magnus
       - ~/data/magnus/repos:/data/repos
     environment:
       - MYSQL_DATABASE=magnus
