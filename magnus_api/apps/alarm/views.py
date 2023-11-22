@@ -95,7 +95,7 @@ def handle_test(request):
         Argument('value', help='参数错误')
     ).parse(request.body)
     if error is None:
-        notify = Notification(None, '1', 'https://magnus.cc', 'Spug官网（测试）', '这是一条测试告警信息', None)
+        notify = Notification(None, '1', 'https://magnus.cc', '测试Test', '这是一条测试告警信息', None)
         if form.mode in ('1', '2', '4') and not notify.magnus_key:
             return json_response(error='未配置调用凭据（系统设置/基本设置），请配置后再尝试。')
 

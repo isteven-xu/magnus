@@ -35,7 +35,7 @@ class Notification:
     @staticmethod
     def handle_request(url, data, mode=None):
         try:
-            res = requests.post(url, json=data, timeout=15)
+            res = requests.post(url, json=data, timeout=60)
         except Exception as e:
             return Notify.make_system_notify('通知发送失败', f'接口调用异常: {e}')
         if res.status_code != 200:
