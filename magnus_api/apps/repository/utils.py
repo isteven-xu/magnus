@@ -28,21 +28,21 @@ def dispatch(rep: Repository, helper=None):
         helper.rds.setex(api_token, 60 * 60, f'{rep.app_id},{rep.env_id}')
         helper.send_info('local', f'\033[32m完成√\033[0m\r\n{human_time()} 构建准备...        ')
         env = AttrDict(
-            SPUG_APP_NAME=rep.app.name,
-            SPUG_APP_KEY=rep.app.key,
-            SPUG_APP_ID=str(rep.app_id),
-            SPUG_DEPLOY_ID=str(rep.deploy_id),
-            SPUG_BUILD_ID=str(rep.id),
-            SPUG_ENV_ID=str(rep.env_id),
-            SPUG_ENV_KEY=rep.env.key,
-            SPUG_VERSION=rep.version,
-            SPUG_BUILD_VERSION=rep.magnus_version,
-            SPUG_API_TOKEN=api_token,
-            SPUG_REPOS_DIR=REPOS_DIR,
+            MAGNUS_APP_NAME=rep.app.name,
+            MAGNUS_APP_KEY=rep.app.key,
+            MAGNUS_APP_ID=str(rep.app_id),
+            MAGNUS_DEPLOY_ID=str(rep.deploy_id),
+            MAGNUS_BUILD_ID=str(rep.id),
+            MAGNUS_ENV_ID=str(rep.env_id),
+            MAGNUS_ENV_KEY=rep.env.key,
+            MAGNUS_VERSION=rep.version,
+            MAGNUS_BUILD_VERSION=rep.magnus_version,
+            MAGNUS_API_TOKEN=api_token,
+            MAGNUS_REPOS_DIR=REPOS_DIR,
         )
         # append configs
         configs = compose_configs(rep.app, rep.env_id)
-        configs_env = {f'_SPUG_{k.upper()}': v for k, v in configs.items()}
+        configs_env = {f'_MAGNUS_{k.upper()}': v for k, v in configs.items()}
         env.update(configs_env)
 
         _build(rep, helper, env)
@@ -69,11 +69,11 @@ def _build(rep: Repository, helper, env):
     tar_file = os.path.join(BUILD_DIR, f'{rep.magnus_version}.tar.gz')
     if extras[0] == 'branch':
         tree_ish = extras[2]
-        env.update(SPUG_GIT_BRANCH=extras[1], SPUG_GIT_COMMIT_ID=extras[2])
+        env.update(MAGNUS_GIT_BRANCH=extras[1], MAGNUS_GIT_COMMIT_ID=extras[2])
     else:
         tree_ish = extras[1]
-        env.update(SPUG_GIT_TAG=extras[1])
-    env.update(SPUG_DST_DIR=render_str(extend.dst_dir, env))
+        env.update(MAGNUS_GIT_TAG=extras[1])
+    env.update(MAGNUS_DST_DIR=render_str(extend.dst_dir, env))
     fetch_repo(rep.deploy_id, extend.git_repo)
     helper.send_info('local', '\033[32m完成√\033[0m\r\n')
 

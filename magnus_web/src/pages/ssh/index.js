@@ -23,7 +23,7 @@ import Setting from './Setting';
 import { http, hasPermission, includes } from 'libs';
 import gStore from 'gStore';
 import styles from './index.module.less';
-import LogoSpugText from 'layout/logo-magnus-white.png';
+import LogoMagnusText from 'layout/logo-magnus-white.png';
 import lds from 'lodash';
 
 let posX = 0
@@ -217,7 +217,7 @@ function WebSSH(props) {
     <div className={styles.container} onMouseUp={() => posX = 0} onMouseMove={handleMouseMove}>
       <div className={styles.sider} style={{width}}>
         <a className={styles.logo} href="/host" target="_blank">
-          <img src={LogoSpugText} alt="logo"/>
+          <img src={LogoMagnusText} alt="logo"/>
         </a>
         <div className={styles.hosts}>
           <Spin spinning={fetching}>

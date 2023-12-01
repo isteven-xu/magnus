@@ -9,7 +9,7 @@ import json
 import os
 
 
-class SpugError(Exception):
+class MagnusError(Exception):
     pass
 
 
@@ -53,7 +53,7 @@ class Helper:
             texts.extend([
                 f'**申请人员：** {req.created_by.nickname}',
                 f'**申请时间：** {human_datetime()}',
-                '> 来自 Spug运维平台'
+                '> 来自 Magnus运维平台'
             ])
         elif action == 'approve_rst':
             color, text = ('#008000', '通过') if req.status == '1' else ('#f90202', '驳回')
@@ -63,7 +63,7 @@ class Helper:
                 f'**审核结果：** <font color="{color}">{text}</font>',
                 f'**审核意见：** {req.reason or ""}',
                 f'**审核时间：** {human_datetime()}',
-                '> 来自 Spug运维平台'
+                '> 来自 Magnus运维平台'
             ])
         else:
             color, text = ('#008000', '成功') if req.status == '3' else ('#f90202', '失败')
@@ -75,12 +75,12 @@ class Helper:
                 f'**执行人员：** {do_user}',
                 f'**发布结果：** <font color="{color}">{text}</font>',
                 f'**发布时间：** {human_datetime()}',
-                '> 来自 Spug运维平台'
+                '> 来自 Magnus运维平台'
             ])
         data = {
             'msgtype': 'markdown',
             'markdown': {
-                'title': 'Spug 发布消息通知',
+                'title': 'Magnus 发布消息通知',
                 'text': '\n\n'.join(texts)
             },
             'at': {
@@ -104,7 +104,7 @@ class Helper:
             texts.extend([
                 f'申请人员： {req.created_by.nickname}',
                 f'申请时间： {human_datetime()}',
-                '> 来自 Spug运维平台'
+                '> 来自 Magnus运维平台'
             ])
         elif action == 'approve_rst':
             color, text = ('info', '通过') if req.status == '1' else ('warning', '驳回')
@@ -114,7 +114,7 @@ class Helper:
                 f'审核结果： <font color="{color}">{text}</font>',
                 f'审核意见： {req.reason or ""}',
                 f'审核时间： {human_datetime()}',
-                '> 来自 Spug运维平台'
+                '> 来自 Magnus运维平台'
             ])
         else:
             color, text = ('info', '成功') if req.status == '3' else ('warning', '失败')
@@ -126,7 +126,7 @@ class Helper:
                 f'执行人员： {do_user}',
                 f'发布结果： <font color="{color}">{text}</font>',
                 f'发布时间： {human_datetime()}',
-                '> 来自 Spug运维平台'
+                '> 来自 Magnus运维平台'
             ])
         data = {
             'msgtype': 'markdown',
@@ -245,7 +245,7 @@ class Helper:
         message = f'\r\n\033[31m{message}\033[0m'
         self._send({'key': key, 'status': 'error', 'data': message})
         if with_break:
-            raise SpugError
+            raise MagnusError
 
     def send_step(self, key, step, data):
         self._send({'key': key, 'step': step, 'data': data})

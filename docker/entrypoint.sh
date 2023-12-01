@@ -6,8 +6,8 @@ if [ -e /root/.bashrc ]; then
 fi
 
 if [ -d /data/magnus/magnus_api ]; then
-#    git clone -b $SPUG_DOCKER_VERSION https://gitee.com/openmagnus/magnus.git /data/magnus
-#    curl -o web.tar.gz https://cdn.magnus.cc/magnus/web_${SPUG_DOCKER_VERSION}.tar.gz
+#    git clone -b $MAGNUS_DOCKER_VERSION https://gitee.com/openmagnus/magnus.git /data/magnus
+#    curl -o web.tar.gz https://cdn.magnus.cc/magnus/web_${MAGNUS_DOCKER_VERSION}.tar.gz
 #    tar xf web.tar.gz -C /data/magnus/magnus_web/
 #    rm -f web.tar.gz
     SECRET_KEY=$(< /dev/urandom tr -dc '!@#%^.a-zA-Z0-9' | head -c50)

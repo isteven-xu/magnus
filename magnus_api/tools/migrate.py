@@ -35,7 +35,7 @@ class Version:
 
 if __name__ == '__main__':
     old_version = Version(sys.argv[1])
-    now_version = Version(settings.SPUG_VERSION)
+    now_version = Version(settings.MAGNUS_VERSION)
     if old_version < Version('v3.0.2'):
         old_path = os.path.join(settings.BASE_DIR, 'repos')
         new_path = os.path.join(settings.REPOS_DIR)

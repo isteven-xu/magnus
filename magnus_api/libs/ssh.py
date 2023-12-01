@@ -56,9 +56,9 @@ class SSH:
         self.sftp = None
         self.exec_file = None
         self.term = term or {}
-        self.eof = 'Spug EOF 2108111926'
+        self.eof = 'Magnus EOF 2108111926'
         self.default_env = default_env
-        self.regex = re.compile(r'Spug EOF 2108111926 (-?\d+)[\r\n]?')
+        self.regex = re.compile(r'Magnus EOF 2108111926 (-?\d+)[\r\n]?')
         self.arguments = {
             'hostname': hostname,
             'port': port,

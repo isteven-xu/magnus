@@ -115,6 +115,6 @@ def get_about(request):
     return json_response({
         'python_version': platform.python_version(),
         'system_version': platform.platform(),
-        'magnus_version': settings.SPUG_VERSION,
+        'magnus_version': settings.MAGNUS_VERSION,
         'django_version': django.get_version()
     })

@@ -1,3 +1,4 @@
+import time
 
 from apps.alarm.models import Group, Contact
 from apps.setting.utils import AppSetting
@@ -120,6 +121,7 @@ class Notification:
         }
         for url in users:
             self.handle_request(url, data, 'dd')
+            time.sleep(1)
 
     def monitor_by_qy_wx(self, users):
         color, title = ('warning', '监控告警通知') if self.event == '1' else ('info', '告警恢复通知')

@@ -22,15 +22,15 @@ class Job:
         self.token = token
         self.rds = get_redis_connection()
         self.env = dict(
-            SPUG_HOST_ID=str(self.key),
-            SPUG_HOST_NAME=name,
-            SPUG_HOST_HOSTNAME=hostname,
-            SPUG_SSH_PORT=str(port),
-            SPUG_SSH_USERNAME=username,
-            SPUG_INTERPRETER=interpreter
+            MAGNUS_HOST_ID=str(self.key),
+            MAGNUS_HOST_NAME=name,
+            MAGNUS_HOST_HOSTNAME=hostname,
+            MAGNUS_SSH_PORT=str(port),
+            MAGNUS_SSH_USERNAME=username,
+            MAGNUS_INTERPRETER=interpreter
         )
         if isinstance(params, dict):
-            self.env.update({f'_SPUG_{k}': str(v) for k, v in params.items()})
+            self.env.update({f'_MAGNUS_{k}': str(v) for k, v in params.items()})
 
     def _send(self, message):
         self.rds.publish(self.token, json.dumps(message))

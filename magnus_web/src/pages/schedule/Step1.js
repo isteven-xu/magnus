@@ -98,12 +98,14 @@ export default observer(function () {
           )}
         </Form.Item>
       </Form.Item>
-      <Form.Item label="失败通知" extra={(
-        <span>
-            任务执行失败告警通知，
-            <a target="_blank" rel="noopener noreferrer"
-               href="https://magnus.cc/docs/use-problem#use-dd">钉钉收不到通知？</a>
-          </span>)}>
+      <Form.Item label="失败通知"
+        //          extra={(
+        // <span>
+        //     任务执行失败告警通知，
+        //     <a target="_blank" rel="noopener noreferrer"
+        //        href="https://magnus.cc/docs/use-problem#use-dd">钉钉收不到通知？</a>
+        //   </span>)}
+      >
         <Input
           value={store.record.rst_notify.value}
           onChange={e => store.record.rst_notify.value = e.target.value}

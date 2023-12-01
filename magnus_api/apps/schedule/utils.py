@@ -20,7 +20,7 @@ def _do_notify(task, mode, url, msg):
             f'**任务类型：** {task.type} ',
             f'**描述信息：** {msg or "请在任务计划执行历史中查看详情"} ',
             f'**发生时间：** {human_datetime()} ',
-            '> 来自 Spug运维平台'
+            '> 来自 Magnus运维平台'
         ]
         data = {
             'msgtype': 'markdown',
@@ -49,7 +49,7 @@ def _do_notify(task, mode, url, msg):
             f'任务类型： {task.type}',
             f'描述信息： {msg or "请在任务计划执行历史中查看详情"}',
             f'发生时间： {human_datetime()}',
-            '> 来自 Spug运维平台'
+            '> 来自 Magnus运维平台'
         ]
         data = {
             'msgtype': 'markdown',

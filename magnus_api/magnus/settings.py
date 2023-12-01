@@ -131,7 +131,7 @@ AUTHENTICATION_EXCLUDES = (
     re.compile('/apis/.*'),
 )
 
-SPUG_VERSION = 'v3.2.7'
+MAGNUS_VERSION = 'v3.2.7'
 
 # override default config
 try:

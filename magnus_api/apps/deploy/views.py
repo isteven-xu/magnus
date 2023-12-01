@@ -130,7 +130,7 @@ class RequestDetailView(View):
         response['index'] = counter
         if counter == 0:
             for item in outputs:
-                outputs[item]['data'] += '\r\n\r\n未读取到数据，Spug 仅保存最近2周的日志信息。'
+                outputs[item]['data'] += '\r\n\r\n未读取到数据，Magnus 仅保存最近2周的日志信息。'
 
         if req.is_quick_deploy:
             if outputs['local']['data']:

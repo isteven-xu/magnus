@@ -109,7 +109,7 @@ def get_detail(request, r_id):
     if not repository:
         return json_response(error='未找到指定构建记录')
     rds, counter = get_redis_connection(), 0
-    if repository.remarks == 'SPUG AUTO MAKE':
+    if repository.remarks == 'MAGNUS AUTO MAKE':
         req = repository.deployrequest_set.last()
         key = f'{settings.REQUEST_KEY}:{req.id}'
     else:
@@ -132,7 +132,7 @@ def get_detail(request, r_id):
     if repository.status in ('0', '1'):
         response.data = f'{human_time()} 建立连接...        ' + response.data
     elif not response.data:
-        response.data = f'{human_time()} 读取数据...        \r\n\r\n未读取到数据，Spug 仅保存最近2周的构建日志。'
+        response.data = f'{human_time()} 读取数据...        \r\n\r\n未读取到数据，Magnus 仅保存最近2周的构建日志。'
     else:
         response.data = f'{human_time()} 读取数据...        ' + response.data
     return json_response(response)

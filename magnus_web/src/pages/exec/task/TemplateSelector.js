@@ -1,5 +1,5 @@
 /**
- * Copyright (c) OpenSpug Organization. https://github.com/openmagnus/magnus
+ * Copyright (c) OpenMagnus Organization. https://github.com/openmagnus/magnus
  * Copyright (c) <magnus.dev@gmail.com>
  * Released under the MIT License.
  */

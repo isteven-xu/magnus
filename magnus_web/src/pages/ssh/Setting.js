@@ -74,7 +74,7 @@ function Setting(props) {
         <Form.Item label="预览">
           <div className={css.preview}
                style={{fontSize, fontFamily, background: styles.background, color: styles.foreground}}>
-            <div>Welcome to Spug !</div>
+            <div>Welcome to Magnus !</div>
             <div>* Website: https://magnus.cc</div>
             <div>[root@iZ8vb48roZ ~]# ls</div>
             <div>

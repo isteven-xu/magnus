@@ -80,9 +80,9 @@ export default observer(function () {
         </Form.Item>
         <Form.Item
           name="version"
-          label="SPUG_RELEASE"
-          tooltip="可以在自定义脚本中引用该变量，用于设置本次发布相关的动态变量，在脚本中通过 $SPUG_RELEASE 来使用该值。">
-          <Input placeholder="请输入环境变量 SPUG_RELEASE 的值"/>
+          label="MAGNUS_RELEASE"
+          tooltip="可以在自定义脚本中引用该变量，用于设置本次发布相关的动态变量，在脚本中通过 $MAGNUS_RELEASE 来使用该值。">
+          <Input placeholder="请输入环境变量 MAGNUS_RELEASE 的值"/>
         </Form.Item>
         {require_upload && (
           <Form.Item required label="上传数据" tooltip="通过数据传输动作来使用上传的文件。"

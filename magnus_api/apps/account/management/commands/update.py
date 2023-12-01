@@ -7,10 +7,10 @@ import os
 
 
 class Command(BaseCommand):
-    help = '升级Spug版本'
+    help = '升级Magnus版本'
 
     def handle(self, *args, **options):
-        version, is_repair = settings.SPUG_VERSION, False
+        version, is_repair = settings.MAGNUS_VERSION, False
         res = requests.get(f'https://api.magnus.cc/apis/release/latest/?version={version}').json()
         if res['error']:
             return self.stderr.write(self.style.ERROR(f'获取新版本失败：{res["error"]}'))
@@ -65,7 +65,7 @@ class Command(BaseCommand):
             f'cd {settings.BASE_DIR}',
             f'python3 ./manage.py makemigrations ' + ' '.join(apps),
             f'python3 ./manage.py migrate',
-            f'python3 ./tools/migrate.py {settings.SPUG_VERSION}'
+            f'python3 ./tools/migrate.py {settings.MAGNUS_VERSION}'
         ]
         task = subprocess.Popen(' && '.join(commands), shell=True)
         if task.wait() != 0:
