@@ -39,7 +39,7 @@ http.interceptors.request.use(request => {
   if (request.isInternal) {
     request.headers['X-Token'] = X_TOKEN
   }
-  request.timeout = request.timeout || 30000;
+  request.timeout = request.timeout || 300000;
   return request;
 });
 

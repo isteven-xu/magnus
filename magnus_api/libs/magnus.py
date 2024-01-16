@@ -114,10 +114,11 @@ class Notification:
             'markdown': {
                 'title': '监控告警通知',
                 'text': '\n\n'.join(texts) + '\n\n> ###### 来自 浙里信大数据运维平台'
-            },
-            'at': {
-                'isAtAll': True
             }
+            # ,
+            # 'at': {
+            #     'isAtAll': True
+            # }
         }
         for url in users:
             self.handle_request(url, data, 'dd')

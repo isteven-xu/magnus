@@ -14,7 +14,6 @@ if [ -d /data/magnus/magnus_api ]; then
     cat > /data/magnus/magnus_api/magnus/overrides.py << EOF
 import os
 
-
 DEBUG = False
 ALLOWED_HOSTS = ['127.0.0.1']
 SECRET_KEY = '${SECRET_KEY}'
@@ -32,6 +31,14 @@ DATABASES = {
             'charset': 'utf8mb4',
             'sql_mode': 'STRICT_TRANS_TABLES',
         }
+    },
+    'starrocks': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.environ.get('SR_DATABASE'),
+        'USER': os.environ.get('SR_USER'),
+        'PASSWORD': os.environ.get('SR_PASSWORD'),
+        'HOST': os.environ.get('SR_HOST'),
+        'PORT': os.environ.get('SR_PORT')
     }
 }
 EOF
